@@ -1,17 +1,24 @@
 //
-// sipsdk.h
+// cwsdk.h
 //
-// Created by luoyingxing on 2018/11/1.
+// Created by luoyingxing on 2018/11/15.
 //
+
+#ifdef __cplusplus
+extern "C"{
+#endif
 
 #ifndef SIPSAMPLE_SIPSKD_H
 #define SIPSAMPLE_SIPSKD_H
 
 #endif //SIPSAMPLE_SIPSKD_H
 
-#include <string.h>
 #include <jni.h>
+#include <stdio.h>
 #include <android/log.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 #include <time.h>
 
 #define LOG_TAG "cwsdk"
@@ -38,7 +45,7 @@ CWSDKContext g_ctx;
 time_t eid_time_last = 0;
 uint16_t eid_seq = 0;
 
-const char digi_64[] = "\\\
+const char digi_64[] = "\
 ABCDEFGHIJ\
 KLMNOPQRST\
 UVWXYZabcd\
@@ -46,3 +53,7 @@ efghijklmn\
 opqrstuvwx\
 yz01234567\
 89+/";
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,4 +1,12 @@
+//
+// cwsdk.c
+//
+// Created by luoyingxing on 2018/11/15.
+//
 
+#ifdef __cplusplus
+extern "C"{
+#endif
 
 #include "cwsdk.h"
 
@@ -52,10 +60,11 @@ char *new_eid(char *tid, char eid[EID_LENGTH]) {
 
 JNIEXPORT jstring JNICALL
 Java_com_lyx_utils_CWUtils_eidConstructor(JNIEnv *env, jobject instance, jstring tid) {
-    const char *_tid = (*env)->GetStringUTFChars(env, tid, 0);
+    char *_tid = (char *) (*env)->GetStringUTFChars(env, tid, 0);
 
     char eid[EID_LENGTH];
     new_eid(_tid, eid);
+
     (*env)->ReleaseStringUTFChars(env, tid, _tid);
 
     return (*env)->NewStringUTF(env, eid);
@@ -64,7 +73,7 @@ Java_com_lyx_utils_CWUtils_eidConstructor(JNIEnv *env, jobject instance, jstring
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     JNIEnv *env;
 
-//    LOGW("JNI_OnLoad");
+    LOGW("JNI OnLoad");
 
     memset(&g_ctx, 0, sizeof(g_ctx));
 
@@ -80,3 +89,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 
     return JNI_VERSION_1_6;
 }
+
+#ifdef __cplusplus
+}
+#endif

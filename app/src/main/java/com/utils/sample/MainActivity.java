@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView tv = findViewById(R.id.sample_text);
-        tv.setText(CWUtils.eidConstructor("COWN-7856-WHS-124"));
+        tv.setText("TID:COWN-VZG-QF-4JV convert to eid is \n" + CWUtils.eidConstructor("COWN-VZG-QF-4JV"));
     }
 
 }

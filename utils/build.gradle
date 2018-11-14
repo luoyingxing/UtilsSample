@@ -7,13 +7,12 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {
             cmake {
-//                cFlags 'DHAVE_INTTYPES_H'
-                arguments '-DANDROID_PLATFORM=android-17', '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
+                cFlags ""
             }
         }
 
